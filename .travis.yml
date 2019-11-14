@@ -8,7 +8,7 @@ env:
 language: go
 go: 1.9.3
 install: true
-after_install:
+before_script:
   - curl -Lo /tmp/bash_unit https://raw.githubusercontent.com/pgrange/bash_unit/v1.6.1/bash_unit
   - chmod a+x /tmp/bash_unit
 script:
