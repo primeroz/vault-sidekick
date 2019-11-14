@@ -9,7 +9,7 @@ language: go
 go: 1.9.3
 install: true
 script:
-- make test
-- if ([[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_EVENT_TYPE} == "push" ]]) || [[ -n ${TRAVIS_TAG} ]]; then
-    GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-X main.gitsha=${TRAVIS_TAG:-git+${TRAVIS_COMMIT}}" -o bin/vault-sidekick_linux_amd64;
-  fi
+  - make test
+  - if ([[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_EVENT_TYPE} == "push" ]]) || [[ -n ${TRAVIS_TAG} ]]; then
+      GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-X main.gitsha=${TRAVIS_TAG:-git+${TRAVIS_COMMIT}}" -o bin/vault-sidekick_linux_amd64;
+    fi
